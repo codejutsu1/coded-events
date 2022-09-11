@@ -45,6 +45,7 @@ module.exports = {
 
       backgroundImage: {
         'hero-pattern' : "url('../src/assets/images/9ICE-AND-BEAUTY-KOKOTV5-1 1.jpg')",
+        'footer' : "url('../src/assets/images/Group 11310.png')"
       }
     },
   },
