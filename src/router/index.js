@@ -4,6 +4,9 @@ import Auth from '../views/AuthHome.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import Forgot from '../views/ForgotPassword.vue'
+import Verify from '../views/Verify.vue'
+import Password from '../views/Password.vue'
+import NewPassword from '../views/NewPassword.vue'
 
 const routes = [
     {
@@ -31,6 +34,21 @@ const routes = [
         name: Forgot,
         component: Forgot
     },
+    {
+        path: '/verify-email',
+        name: Verify,
+        component: Verify
+    },
+    {
+        path: '/password',
+        name: Password,
+        component: Password
+    },
+    {
+        path: '/new-password',
+        name: NewPassword,
+        component: NewPassword
+    }
 ]
 
 const router = createRouter({

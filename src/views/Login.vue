@@ -15,11 +15,11 @@ import Footer from '../components/Footer.vue'
             <form action="#" class="w-full">
                 <div class="space-y-4">
                     <label for="email" class="text-base font-bold text-main-200">Email</label>
-                    <input type="email" class="block mt-1 bg-white border border-grey-200 w-full py-2 rounded px-4" placeholder="Enter your email address">
+                    <input type="email" class="block mt-1 bg-white border border-grey-200 w-full py-3 rounded px-4" placeholder="Enter your email address">
                 </div>
                 <div class="space-y-4 mt-4">
                     <label for="password" class="text-base font-bold text-main-200">Password</label>
-                    <input type="password" class="block mt-1 bg-white border border-grey-200 w-full py-2 rounded px-4" placeholder="Enter your password">
+                    <input type="password" class="block mt-1 bg-white border border-grey-200 w-full py-3 rounded px-4" placeholder="Enter your password">
                 </div>
             </form>
             <div class="flex justify-end my-10">

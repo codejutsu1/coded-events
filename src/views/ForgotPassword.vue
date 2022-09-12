@@ -18,7 +18,7 @@ import Footer from '../components/Footer.vue'
             <form action="#" class="w-full my-10">
                 <div class="space-y-4">
                     <label for="email" class="text-base font-bold text-main-200">Email</label>
-                    <input type="email" class="block mt-1 bg-white border border-grey-200 w-full py-2 rounded px-4" placeholder="Enter your email address">
+                    <input type="email" class="block mt-1 bg-white border border-grey-200 w-full py-3 rounded px-4" placeholder="Enter your email address">
                 </div>
             </form>
             <div class="flex justify-center py-6">

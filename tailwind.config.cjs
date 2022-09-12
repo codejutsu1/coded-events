@@ -19,12 +19,14 @@ module.exports = {
           600: '#3F0A00',
           700: '#FFA485',
           800: '#FFF3E1',
+          900: '#FFF6EA'
         },
         
         'info' : '#2F80ED',
         'success' : '#27AE60',
         'warning' : '#E2B93B',
         'error' : '#EB5757',
+        'green' : '#04C000',
 
         'black' : {
           100: '#000000',
@@ -40,7 +42,8 @@ module.exports = {
           300 : '#828282',
           400 :  '#4F4F4F',
           500 : '#333333',
-          600: '#EFEFEF'
+          600: '#EFEFEF',
+          700: '#ECECEC'
         }
       },
 
