@@ -4,6 +4,34 @@ import Hero from '../components/Hero.vue'
 import Categories from '../components/Categories.vue'
 import Events from '../components/Events.vue'
 import Footer from '../components/Footer.vue'
+import { onMounted } from '@vue/runtime-core'
+import {useRouter} from 'vue-router'
+import {useStore} from 'vuex'
+import {ref} from 'vue'
+
+const store = useStore();
+
+const message = ref('');
+
+const router = useRouter();
+
+onMounted(async () => {
+    try {
+        const reponse = await fetch('https://api.codedevents.com/auth/user', {
+            headers: {'Content-type': 'application/json'},
+            credentials: 'same-origin'
+        });
+
+        const content = await response.json();
+
+        message.value = `Hi ${content.name}`;
+
+        await store.dispatch('setAuth', true)
+    }catch(err){
+        await store.dispatch('setAuth', false)
+        await router.push('/login');
+    }
+})
 
 </script>
 

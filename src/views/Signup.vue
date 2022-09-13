@@ -2,6 +2,30 @@
 import Navbar from '../components/Navbar.vue'
 import Onboarding from '../components/Onboarding.vue'
 import Footer from '../components/Footer.vue'
+import { reactive } from '@vue/reactivity'
+import {useRouter} from 'vue-router'
+
+const form = reactive({
+    name: '',
+    email: '',
+    phone: '',
+    country: '',
+    city: '',
+    password: ''
+})
+
+const router = useRouter();
+
+const onSubmit = async() => {
+    await fetch('https://api.codedevents.com/auth/register', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(form)
+    });
+
+    await router.push('/auth');
+}
+
 
 </script>
 
@@ -12,14 +36,14 @@ import Footer from '../components/Footer.vue'
 
     <section class="py-20">
         <div class="w-1/3 mx-auto flex flex-col justify-center">
-            <form action="#" class="w-full">
+            <form class="w-full" @submit.prevent='onSubmit' >
                 <div class="space-y-4">
                     <label for="name" class="text-base font-bold text-main-200">Name</label>
-                    <input type="text" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4" placeholder="Enter your name">
+                    <input type="text" v-model="form.name" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4" placeholder="Enter your name">
                 </div>
                 <div class="space-y-4 mt-4">
                     <label for="email" class="text-base font-bold text-main-200">Email</label>
-                    <input type="email" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4" placeholder="Enter your email address">
+                    <input type="email" v-model="form.email" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4" placeholder="Enter your email address">
                 </div>
                 <div class="space-y-4 mt-4">
                     <label for="email" class="text-base font-bold text-main-200">Phone Number</label>
@@ -32,12 +56,12 @@ import Footer from '../components/Footer.vue'
                                 <option value="+232">+234</option>
                             </select>
                         </div>
-                        <input type="email" class="block bg-white border-l border-grey-200 w-full py-3 px-4 ring-0 outline-0" placeholder="Enter your phone number">
+                        <input type="tel" v-model="form.phone" class="block bg-white border-l border-grey-200 w-full py-3 px-4 ring-0 outline-0" placeholder="Enter your phone number">
                     </div>
                 </div>
                 <div class="space-y-4 mt-4">
                     <label for="password" class="text-base font-bold text-main-200">Password</label>
-                    <input type="password" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4" placeholder="Please input your password">
+                    <input type="password" v-model="form.password" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4" placeholder="Please input your password">
                 </div>
                 <div class="mt-4 flex gap-3 items-center">
                     <span class="text-xs font-normal text-grey-300">Password strength</span>
@@ -55,19 +79,19 @@ import Footer from '../components/Footer.vue'
                 </div>
                 <div class="space-y-4 mt-4">
                     <label for="email" class="text-base font-bold text-main-200">Country</label>
-                    <select name="country" id="couuntry" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4 text-grey-300">
-                        <option value="nigeria">Nigeria</option>
+                    <select name="country" v-model="form.country" id="couuntry" class="block mt-1 bg-white border border-grey-200 w-full py-3 outline-0 ring-0 rounded px-4 text-grey-300">
+                        <option value="nigeria" selected>Nigeria</option>
                     </select>
                 </div>
                 <div class="space-y-4 mt-4">
                     <label for="city" class="text-base font-bold text-main-200">City</label>
-                    <input type="text" class="block mt-1 bg-white border border-grey-200 w-full py-3 rounded px-4 outline-0 ring-0" placeholder="Lagos">
+                    <input type="text" v-model="form.city" class="block mt-1 bg-white border border-grey-200 w-full py-3 rounded px-4 outline-0 ring-0" placeholder="Lagos">
+                </div>
+                <div class="flex justify-center pt-10 pb-6">
+                    <input type="submit" value="Sign Up" class="bg-main-200 rounded-lg py-4 px-36 text-base font-bold text-white">
                 </div>
             </form>
             
-            <div class="flex justify-center pt-10 pb-6">
-                <router-link to="/" class="bg-main-200 rounded-lg py-4 px-36 text-base font-bold text-white">Signup</router-link>
-            </div>
             <div>
                 <p class="text-grey-300 font-normal text-base text-center">Have an account already? <router-link to="login" class="text-main-200">Login</router-link></p>
             </div>
